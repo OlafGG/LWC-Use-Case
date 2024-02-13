@@ -1,0 +1,24 @@
+<template>
+    <div style="height: auto;">
+        <lightning-datatable key-field="id" data={lstcontacts} columns={columns} onrowaction={handleRowAction}>
+            
+        </lightning-datatable>
+        <template if:true={displayModal}>
+            <c-sample-lightning-modal 
+            modal-title = "Edit Record"
+            record={record} 
+            oncancelmodalbutton={handleCloseModal}
+            onsuccess={handleSucces}
+            >
+                <span slot="title">{title}</span>
+                <div slot="content">
+                    Hola desde la Tabla
+                </div>
+                <div slot="footer">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={handleCloseModal} >Cancel</button>
+                    <!-- <button class="slds-button slds-button_brand">Save</button> -->
+                </div>
+            </c-sample-lightning-modal>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<template>
+    <button class="slds-button slds-button_neutral" value="newContact" name="newContact" onclick={handleOpenTitle}>New Contact</button>
+    <lightning-datatable
+    key-field="Id" data={data} columns={columns}
+    onrowaction={handleRowActions}>
+    
+    </lightning-datatable>
+    <template if:true={displayModal}>
+        <c-sample-modal-v2 
+        title-header={title}
+            >
+            <div slot="content">
+                <c-form-display-on-modal 
+                    onclose={handleCloseModal} 
+                    onsave={handleSave} 
+                    row-fields={rowFields}
+                    columns={columns}
+                    >
+
+                </c-form-display-on-modal>
+            </div>
+        </c-sample-modal-v2>
+    
+        <!-- <c-form-display-on-modal></c-form-display-on-modal> -->
+    </template> 
+</template>
